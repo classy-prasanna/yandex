@@ -1,29 +1,15 @@
-# README #
+Moodle Mobile 2.x
+=================
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is the primary repository of source code for the official Moodle Mobile app version 2.x.
 
-### What is this repository for? ###
+* [User documentation](http://docs.moodle.org/en/Moodle_Mobile)
+* [Developer documentation](http://docs.moodle.org/dev/Moodle_Mobile)
+* [Development environment setup](http://docs.moodle.org/dev/Setting_up_your_development_environment_for_Moodle_Mobile_2)
+* [Bug Tracker](https://tracker.moodle.org/browse/MOBILE)
+* [Release Notes](http://docs.moodle.org/dev/Moodle_Mobile_Release_Notes)
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+License
+-------
 
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+[Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
