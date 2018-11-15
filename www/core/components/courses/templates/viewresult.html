@@ -37,6 +37,13 @@
                     <p>{{ 'mm.core.paymentinstant' | translate }}</p>
                     <button class="button button-block" ng-click="paypalEnrol()">{{ 'mm.courses.sendpaymentbutton' | translate }}</button>
                 </div>
+
+                <div class="item item-text-wrap" ng-if="!isEnrolled && yandexEnabled">
+                    <p class="item-heading ">{{ 'mm.courses.yandexaccepted' | translate }}</p>
+                    <p>{{ 'mm.core.paymentinstant' | translate }}</p>
+                    <button class="button button-block" ng-click="yandexEnrol()">{{ 'mm.courses.yandexbutton' | translate }}</button>
+                </div>
+
                 <div class="item" ng-if="!isEnrolled && !selfEnrolInstances.length && !paypalEnabled">
                     <p>{{ 'mm.courses.notenrollable' | translate }}</p>
                 </div>

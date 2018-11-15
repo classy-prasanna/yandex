@@ -35,6 +35,7 @@ angular.module('mm.core.courses')
         enrolUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'enrol/index.php?id=' + course.id),
         courseUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'course/view.php?id=' + course.id),
         paypalReturnUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'enrol/paypal/return.php'),
+        yandexReturnUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'enrol/yandex/success.php'),
         inAppLoadListener,
         inAppFinishListener,
         inAppExitListener,
@@ -342,6 +343,68 @@ angular.module('mm.core.courses')
                     hasReturnedFromPaypal = true;
                 } else if (event.url.indexOf(courseUrl) != -1 && hasReturnedFromPaypal) {
                     // User reached the course index page after returning from PayPal, close the InAppBrowser.
+                    inAppClosed();
+                    $mmUtil.closeInAppBrowser();
+                }
+            }
+
+            function inAppClosed() {
+                // InAppBrowser closed, refresh data.
+                stopListeners();
+
+                if (!$scope.courseLoaded) {
+                    return;
+                }
+                $scope.courseLoaded = false;
+                refreshData();
+            }
+        };
+    }
+
+    if (course.enrollmentmethods && course.enrollmentmethods.indexOf('yandex') > -1) {
+        $scope.yandexEnabled = true;
+
+        $scope.yandexEnrol = function() {
+            var hasReturnedFromYandex = false;
+
+            // Stop previous listeners if any.
+            stopListeners();
+
+            // Open the enrolment page in InAppBrowser.
+            $mmSite.openInAppWithAutoLogin(enrolUrl);
+
+            // Observe loaded pages in the InAppBrowser to check if the enrol process has ended.
+            inAppLoadListener = $rootScope.$on('$cordovaInAppBrowser:loadstart', urlLoaded);
+
+            if (!$mmApp.isDevice()) {
+                // In desktop, also observe stop loading since some pages don't throw the loadstart event.
+                inAppFinishListener = $rootScope.$on('$cordovaInAppBrowser:loadstop', urlLoaded);
+
+                // Since the user can switch windows, reload the data if he comes back to the app.
+                appResumeListener = $ionicPlatform.on('resume', function() {
+                    if (!$scope.courseLoaded) {
+                        return;
+                    }
+                    $scope.courseLoaded = false;
+                    refreshData();
+                });
+            }
+
+            // Observe InAppBrowser closed events.
+            inAppExitListener = $rootScope.$on('$cordovaInAppBrowser:exit', inAppClosed);
+
+            function stopListeners() {
+                inAppLoadListener && inAppLoadListener();
+                inAppFinishListener && inAppFinishListener();
+                inAppExitListener && inAppExitListener();
+                appResumeListener && appResumeListener();
+            }
+
+            function urlLoaded(e, event) {
+                if (event.url.indexOf(yandexReturnUrl) != -1) {
+                    hasReturnedFromYandex = true;
+                } else if (event.url.indexOf(courseUrl) != -1 && hasReturnedFromYandex) {
+                    // User reached the course index page after returning from Yandex, close the InAppBrowser.
                     inAppClosed();
                     $mmUtil.closeInAppBrowser();
                 }

@@ -1,6 +1,6 @@
 {
   "name": "moodlemobile2",
-  "app_id": "",
+  "integrations": {},
   "watchPatterns": [
     "www/**/*.html",
     "www/build/**/*",

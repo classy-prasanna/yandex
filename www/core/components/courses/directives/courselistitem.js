@@ -63,7 +63,13 @@ angular.module('mm.core.courses')
                             name: $translate.instant('mm.courses.paypalaccepted'),
                             img: 'img/icons/paypal.png'
                         });
+                    } else if (instance === 'yandex') {
+                        course.enrollment.push({
+                            name: $translate.instant('mm.courses.yandexaccepted'),
+                            img: 'img/icons/yandex.svg'
+                        });
                     }
+
                 });
 
                 if (course.enrollment.length == 0) {

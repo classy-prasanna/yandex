@@ -22,10 +22,12 @@
     "password": "Enrolment key",
     "paymentrequired": "This course requires a payment for entry.",
     "paypalaccepted": "PayPal payments accepted",
+    "yandexaccepted": "Yandex payments accepted",
     "search": "Search",
     "searchcourses": "Search courses",
     "searchcoursesadvice": "You can use the search courses button to find courses to access as a  guest or enrol yourself in courses that allow it.",
     "selfenrolment": "Self enrolment",
     "sendpaymentbutton": "Send payment via PayPal",
+     "yandexbutton": "Send payment via Yandex",
     "totalcoursesearchresults": "Total courses: {{$a}}"
 }
