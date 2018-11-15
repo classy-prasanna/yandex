@@ -171,7 +171,7 @@ angular.module('mm.addons.pushnotifications')
      * @return {Promise} Promise resolved when the device is registered.
      */
     self.registerDevice = function() {
-	PNS = window.plugins.pushNotification;
+	PNS = window.plugins.PushNotification;
         try {
             // Check if sound is enabled for notifications.
             return $mmConfig.get(mmCoreSettingsNotificationSound, true).then(function(soundEnabled) {
