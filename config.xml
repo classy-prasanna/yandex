@@ -23,7 +23,7 @@
   <preference name="webviewbounce" value="false"/>
   <preference name="AppendUserAgent" value="MoodleMobile"/>
   <preference name="android-minSdkVersion" value="14"/>
-  <preference name="android-targetSdkVersion" value="27"/>
+  <preference name="android-targetSdkVersion" value="19"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="BackupWebStorage" value="none"/>
@@ -125,7 +125,4 @@
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
   <icon src="resources/ios/icon/icon-small@3x.png"/>
-   <plugin name="cordova-android-support-gradle-release" spec="1.3.0">
-        <variable name="ANDROID_SUPPORT_VERSION" value="26.+" />
-    </plugin>
 </widget>
