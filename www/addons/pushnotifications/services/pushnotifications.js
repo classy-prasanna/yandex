@@ -171,28 +171,30 @@ angular.module('mm.addons.pushnotifications')
      * @return {Promise} Promise resolved when the device is registered.
      */
     self.registerDevice = function() {
-	PNS = window.plugins.PushNotification;
-        try {
-            // Check if sound is enabled for notifications.
-            return $mmConfig.get(mmCoreSettingsNotificationSound, true).then(function(soundEnabled) {
-		PNS.onDeviceReady({
-		    projectid: mmCoreConfigConstants.pwKeyAndroid,
-		    appid: mmCoreConfigConstants.pwId
-		});
-                return PNS.registerDevice(
-		    function(status) {
-			pushID = status.pushToken;
-			return self.registerDeviceOnMoodle();
-		    },
-		    function(status) {
-			console.warn("-------------PNS register error----------");
-			console.warn(JSON.stringify(['failed to register ', status]));
-		    }
-		);
-            });
-        } catch(ex) {}
+        document.addEventListener("deviceready", function () {
+        	PNS = window.plugins.PushNotification;
+                try {
+                    // Check if sound is enabled for notifications.
+                    return $mmConfig.get(mmCoreSettingsNotificationSound, true).then(function(soundEnabled) {
+        		PNS.onDeviceReady({
+        		    projectid: mmCoreConfigConstants.pwKeyAndroid,
+        		    appid: mmCoreConfigConstants.pwId
+        		});
+                        return PNS.registerDevice(
+        		    function(status) {
+        			pushID = status.pushToken;
+        			return self.registerDeviceOnMoodle();
+        		    },
+        		    function(status) {
+        			console.warn("-------------PNS register error----------");
+        			console.warn(JSON.stringify(['failed to register ', status]));
+        		    }
+        		);
+                    });
+                } catch(ex) {}
 
-        return $q.reject();
+                return $q.reject();
+        });
     };
 
     /**
