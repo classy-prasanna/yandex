@@ -36,6 +36,7 @@ angular.module('mm.core.courses')
         courseUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'course/view.php?id=' + course.id),
         paypalReturnUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'enrol/paypal/return.php'),
         yandexReturnUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'enrol/yandex/success.php'),
+        yandexEnrolUrl = $mmFS.concatenatePaths($mmSite.getURL(), 'enrol/yandex/pay.php?id=' + course.id),
         inAppLoadListener,
         inAppFinishListener,
         inAppExitListener,
@@ -371,7 +372,7 @@ angular.module('mm.core.courses')
             stopListeners();
 
             // Open the enrolment page in InAppBrowser.
-            $mmSite.openInAppWithAutoLogin(enrolUrl);
+            $mmSite.openInAppWithAutoLogin(yandexEnrolUrl);
 
             // Observe loaded pages in the InAppBrowser to check if the enrol process has ended.
             inAppLoadListener = $rootScope.$on('$cordovaInAppBrowser:loadstart', urlLoaded);
