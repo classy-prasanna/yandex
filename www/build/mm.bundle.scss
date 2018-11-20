@@ -1834,7 +1834,14 @@ ol.list-with-style, ul.list-with-style {
         }
     }
 }
+// LMSACE custom code.
 
+.item-button-right > .buttons.buttons-small > .button.button-icon {
+padding: 0;
+}
+ a.item.item-button-right {
+padding-right: 120px;
+}
 .atto_image_preview {
     width: 100%;
     height: 100%;
@@ -2824,10 +2831,17 @@ li.mm-question-answer-incorrect,
 .questioncorrectnessicon {
   font-size: 20px;
 }
-#mm-settings-languagelabel {
-  color: $base-color;
+
+.foreground-ion-edit.ion-edit:before {
+    position: relative;
+    left: 120px;
+    bottom: 15px;
+    font-size: 24px;
 }
 
+.mm-site_mm_user-profile .mm-tab-handlers {
+    padding-bottom: 16px;
+}
 // Bar styles
 .bar-side-menu {
   @include bar-style($bar-side-menu-color, $bar-side-menu-border-color, $bar-side-menu-text-color);
@@ -2870,17 +2884,10 @@ ion-side-menu li.item {
 ion-side-menu li.item.item-divider {
   background-color: $bar-side-menu-item-divider-color;
 }
-
-.foreground-ion-edit.ion-edit:before {
-    position: relative;
-    left: 120px;
-    bottom: 15px;
-    font-size: 24px;
+#mm-settings-languagelabel {
+  color: $base-color;
 }
 
-.mm-site_mm_user-profile .mm-tab-handlers {
-    padding-bottom: 16px;
-}
 
 .mm-site_frontpage {
     .mma-frontpage-item-container .item-media {
