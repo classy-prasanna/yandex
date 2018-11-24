@@ -29,5 +29,6 @@
     "selfenrolment": "Self enrolment",
     "sendpaymentbutton": "Send payment via PayPal",
      "yandexbutton": "Send payment via Yandex",
+     "yandexBuy": "Buy for ",
     "totalcoursesearchresults": "Total courses: {{$a}}"
 }

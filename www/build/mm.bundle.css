@@ -13259,14 +13259,8 @@ li.mm-question-answer-incorrect,
 .questioncorrectnessicon {
   font-size: 20px; }
 
-.foreground-ion-edit.ion-edit:before {
-  position: relative;
-  left: 120px;
-  bottom: 15px;
-  font-size: 24px; }
-
-.mm-site_mm_user-profile .mm-tab-handlers {
-  padding-bottom: 16px; }
+#mm-settings-languagelabel {
+  color: #3a3a3a; }
 
 .bar-side-menu {
   border-color: transparent;
@@ -13320,8 +13314,14 @@ ion-side-menu li.itemcenter {
 ion-side-menu li.item.item-divider, ion-side-menu .mm-grades-table li.item-divider.itemcenter, .mm-grades-table ion-side-menu li.item-divider.itemcenter {
   background-color: #f5f5f5; }
 
-#mm-settings-languagelabel {
-  color: #3a3a3a; }
+.foreground-ion-edit.ion-edit:before {
+  position: relative;
+  left: 120px;
+  bottom: 15px;
+  font-size: 24px; }
+
+.mm-site_mm_user-profile .mm-tab-handlers {
+  padding-bottom: 16px; }
 
 .mm-site_frontpage .mma-frontpage-item-container .item-media {
   min-height: 55px;

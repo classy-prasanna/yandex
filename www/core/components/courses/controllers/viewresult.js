@@ -43,6 +43,7 @@ angular.module('mm.core.courses')
         appResumeListener,
         obsStatus;
 
+
     $scope.course = course;
     $scope.component = mmCoursesSearchComponent;
     $scope.handlersShouldBeShown = true;
@@ -51,6 +52,9 @@ angular.module('mm.core.courses')
         password: ''
     };
 
+
+    $scope.yandexCost = 0;
+    $scope.yandexCurrency = '';
     // Function to determine if handlers are being loaded.
     $scope.loadingHandlers = function() {
         return $scope.handlersShouldBeShown && !$mmCoursesDelegate.areNavHandlersLoadedFor(course.id);
@@ -365,8 +369,19 @@ angular.module('mm.core.courses')
     if (course.enrollmentmethods && course.enrollmentmethods.indexOf('yandex') > -1) {
         $scope.yandexEnabled = true;
 
+        $mmCourses.getYandexCost(course.id).then(function(response) {
+         	if (typeof(response.cost) != 'undefined') {
+         		$scope.yandexCost = response.cost;
+         	}
+
+         	$scope.yandexCurrency = (typeof(response.currency) != 'undefined') ? response.currency : 'USD';
+     	});
+
         $scope.yandexEnrol = function() {
+
             var hasReturnedFromYandex = false;
+
+
 
             // Stop previous listeners if any.
             stopListeners();

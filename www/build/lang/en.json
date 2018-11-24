@@ -596,6 +596,7 @@
     "mm.courses.selfenrolment": "Self enrolment",
     "mm.courses.sendpaymentbutton": "Send payment via PayPal",
     "mm.courses.totalcoursesearchresults": "Total courses: {{$a}}",
+    "mm.courses.yandexBuy": "Buy for ",
     "mm.courses.yandexaccepted": "Yandex payments accepted",
     "mm.courses.yandexbutton": "Send payment via Yandex",
     "mm.fileuploader.addfiletext": "Add file",
