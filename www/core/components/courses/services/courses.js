@@ -236,7 +236,7 @@ angular.module('mm.core.courses')
                 cacheKey: getCourseEnrolmentMethodsCacheKey(id)
             };
 
-        return $mmSite.read('enrol_yandex_course_info', params, preSets);
+        return $mmSite.read('core_enrol_get_course_enrolment_methods', params, preSets);
     };
 
 
